@@ -1,0 +1,41 @@
+{% set name = "madness" %}
+{% set version = "1.0" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+ 
+# adapt madpno source once online
+source: 
+        - git_url: https://github.com/m-a-d-n-e-s-s/madness
+          folder: madness
+
+build:
+  number: 0
+  always_include_files:
+  - /etc/conda/activate.d/activate_madness.sh
+
+
+requirements:
+  run:
+    - mkl
+  build:
+    - {{ compiler('cxx') }}
+    - python
+    - cmake
+    - make
+    - mkl-devel
+
+about:
+  home: "https://github.com/m-a-d-n-e-s-s/madness"
+  license: "GPL-2.0"
+  license_family: "GPL"
+  license_file: ""
+  summary: "Madness suitable for linux laptop development. No MPI and no TBB. Git Hash at installation: 57326a82feeb150229884fc538ca27ee3b470025"
+  doc_url: ""
+  dev_url: ""
+
+extra:
+  recipe-maintainers:
+    - kottmann
