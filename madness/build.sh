@@ -9,10 +9,14 @@ export CPLUS_INCLUDE_PATH=$(realpath numcpp/include):$CPLUS_INCLUDE_PATH
 # make sure that the right boost and mkl are found and used
 export CPLUS_INCLUDE_PATH=$(realpath $PREFIX/include):$CPLUS_INCLUDE_PATH
 
-cmake -D ENABLE_MPI=OFF -D ENABLE_MKL=ON -D CMAKE_INSTALL_PREFIX="$PREFIX" -D CMAKE_CXX_FLAGS="-O3 -DNDEBUG" -S madness -B build
+cmake -D BLA_STATIC=OFF -D BUILD_SHARED_LIBS=ON  -D ENABLE_MPI=OFF -D ENABLE_MKL=ON -D CMAKE_INSTALL_PREFIX="$PREFIX" -D CMAKE_CXX_FLAGS="-O3 -DNDEBUG" -S madness -B build
 make -j12 -C build
 make nemo moldft cis pno cc2 mp2 znemo zcis oep -C build
 make install -C build
+
+# need to copy those files manually
+cp madness/src/madness/tensor/tensor_json.hpp $PREFIX/include/madness/tensor/
+cp -r madness/src/madness/external/nlohmann_json/ $PREFIX/include/madness/external/
 
 mkdir -p $PREFIX/etc/conda/activate.d/
 touch $PREFIX/etc/conda/activate.d/activate_madness.sh
