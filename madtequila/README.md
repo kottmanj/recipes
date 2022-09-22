@@ -4,8 +4,11 @@ Implementes what is described in [arxiv:2008.02819](https://arxiv.org/abs/2008.0
 Hosted on [anaconda.org/kottmann/madtequila](https://anaconda.org/kottmann/madtequila).  
 
 ### Notes for OSX
-- OSX-64 version on the anaconda cloud seems to work. 
-- OSX-ARM1 version on the anaconda cloud does not work. Suspected reason are issues with the MKL dependency.
+#### OSX-64 
+version on the anaconda cloud seems to work. 
+#### OSX-ARM1 
+version on the anaconda cloud does *not* work.  
+Suspected reason are issues with the MKL dependency.  
 Potential solutions: Use apple accelerate framework
 1. set `ENABLE_MKL=OFF` in [build.sh](build.sh)
 2. install accelerate framework (probably over xcode or something)
@@ -15,7 +18,7 @@ Potential solutions: Use apple accelerate framework
   CONDA_BUILD_SYSROOT:
   - /opt/MacOSX11.3.sdk
   ```
-  and add the the following to the cmake call in [build.sh](build.sh)
+  - add the the following to the cmake call in [build.sh](build.sh)
   ```bash
   -D CMAKE_OSX_SYSROOT="${CONDA_BUILD_SYSROOT}"
   ```
