@@ -22,7 +22,6 @@ build:
 
 requirements:
   run:
-    - mpich
     - boost
     - mkl
   build:
@@ -31,7 +30,6 @@ requirements:
     - cmake
     - make
     - mkl-devel
-    - mpich
     - boost
 
 about:
