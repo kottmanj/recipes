@@ -12,5 +12,5 @@ conda install conda-build
 ```
 3. Install from recipe
 ```bash
-conda-build recipe_directory
+conda-build /path/to/madtequila/
 ```
