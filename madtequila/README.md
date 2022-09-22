@@ -23,3 +23,7 @@ Potential solutions: Use apple accelerate framework
   ```bash
   -D CMAKE_OSX_SYSROOT="${CONDA_BUILD_SYSROOT}"
   ```
+  - potentially also useful to add
+  ```bash
+  -D BLA_STATIC=OFF
+  ```
