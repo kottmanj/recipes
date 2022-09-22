@@ -8,7 +8,8 @@ Hosted on [anaconda.org/kottmann/madtequila](https://anaconda.org/kottmann/madte
 version on the anaconda cloud seems to work. 
 #### OSX-ARM1 
 version on the anaconda cloud does *not* work.  
-Suspected reason are issues with the MKL dependency.  
+Problems are however mostly with getting it to work on the anaconda clould. Compiling locally seems to be fine.  
+Suspected reason for the deployment issue with anaconda is the MKL dependency.  
 Potential solutions: Use apple accelerate framework
 1. set `ENABLE_MKL=OFF` in [build.sh](build.sh)
 2. install accelerate framework (probably over xcode or something)
