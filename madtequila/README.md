@@ -6,7 +6,7 @@ Hosted on [anaconda.org/kottmann/madtequila](https://anaconda.org/kottmann/madte
 ### Notes for OSX
 #### OSX-64 
 version on the anaconda cloud seems to work. 
-#### OSX-ARM1 
+#### OSX-ARM64
 version on the anaconda cloud does *not* work.  
 Problems are however mostly with getting it to work on the anaconda clould. Compiling locally seems to be fine.  
 Suspected reason for the deployment issue with anaconda is the MKL dependency.  
