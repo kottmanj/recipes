@@ -1,0 +1,47 @@
+{% set name = "madtequila" %}
+{% set version = "2.3" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+ 
+# adapt madpno source once online
+source: 
+  #- git_url: https://github.com/kottmanj/madness
+        - git_url: https://github.com/kottmanj/madness
+          folder: madness
+          git_tag: tequila
+        - git_url: https://github.com/dpilger26/NumCpp.git
+          folder: numcpp
+
+build:
+  number: 0
+  always_include_files:
+  - /etc/conda/activate.d/activate_madness.sh
+
+
+requirements:
+  run:
+    - boost
+  build:
+    - python
+    - cmake
+    - make
+    - boost
+      #  host:
+      #- libblas
+      #- liblapack
+
+about:
+  home: "https://github.com/madness/madness"
+  license: "GPL-2.0"
+  license_family: "GPL"
+  license_file: ""
+  summary: "Madness with extra features for tequila use: see github.com/kottmanj/madness tequila branch"
+  doc_url: ""
+  dev_url: ""
+
+extra:
+  recipe-maintainers:
+    - kottmanj

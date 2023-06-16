@@ -19,13 +19,7 @@ build:
 
 requirements:
   run:
-    - mkl
   build:
-    - {{ compiler('cxx') }}
-    - python
-    - cmake
-    - make
-    - mkl-devel
 
 about:
   home: "https://github.com/m-a-d-n-e-s-s/madness"
