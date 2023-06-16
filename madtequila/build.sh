@@ -1,4 +1,4 @@
-PLATFORM=linux-64 # adapt if necessary
+PLATFORM=osx-arm64 # adapt if necessary
 echo building on $PLATFORM
 echo you are on $(uname -a)
 
@@ -9,10 +9,12 @@ export CPLUS_INCLUDE_PATH=$(realpath numcpp/include):$CPLUS_INCLUDE_PATH
 # make sure that the right boost and mkl are found and used
 export CPLUS_INCLUDE_PATH=$(realpath $PREFIX/include):$CPLUS_INCLUDE_PATH
 
-cmake -D ENABLE_MPI=OFF -D BUILD_SHARED_LIBS=ON -D ENABLE_MKL=ON -D CMAKE_INSTALL_PREFIX="$PREFIX" -D CMAKE_CXX_FLAGS="-O3 -DNDEBUG -march=native" -S madness -B build
+cmake -D ENABLE_MPI=OFF -D BUILD_SHARED_LIBS=ON -D ENABLE_MKL=ON -D CMAKE_INSTALL_PREFIX="$PREFIX" -D CMAKE_CXX_FLAGS="-O3 -DNDEBUG" -DCMAKE_OSX_DEPLOYMENT_TARGET=13.1 -S madness -B build
 make -j8 -C build
-make nemo moldft cis pno cc2 mp2 znemo zcis oep -C build
+make nemo moldft cis pno tiny -C build
 make pno_integrals -C build
+make plot2cube -C build
+make plot2plane -C build
 make install -C build
 
 mkdir -p $PREFIX/etc/conda/activate.d/

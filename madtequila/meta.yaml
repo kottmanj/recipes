@@ -8,7 +8,7 @@ package:
  
 # adapt madpno source once online
 source: 
-        - path: ../../madsource/
+        - git_url: https://github.com/kottmanj/madness
           folder: madness
           git_tag: tequila
         - git_url: https://github.com/dpilger26/NumCpp.git
